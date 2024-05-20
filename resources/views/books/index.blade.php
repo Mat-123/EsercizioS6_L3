@@ -1,6 +1,6 @@
 <h1>Books list</h1>
 
-@if ($titles)
+{{-- @if ($titles)
     <ul>
         @foreach ($titles as $title)
             <li @style([
@@ -12,12 +12,12 @@
     </ul>
 @else
     <h2>Non ci sono libri</h2>
-@endif
+@endif --}}
 
 
 
-@forelse ($titles as $title)
-    <div>{{ $title }}</div>
+@forelse ($books as $book)
+    <div>{{ $book->title }}</div>
 @empty
     <h2>Non ci sono libri</h2>
 @endforelse

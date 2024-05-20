@@ -20,6 +20,7 @@ class BooksSeeder extends Seeder
             DB::table('books')->insert([
                 'title' => fake()->sentence(),
                 'author' => fake()->name(),
+                'category' => fake()->word(),
                 'short_description' => fake()->paragraph(4),
                 'price' => rand(5, 40),
                 'img_url' => fake()->imageUrl(400, 800, true),
