@@ -1,23 +1,37 @@
+@extends('templates.base')
+
+@section('title', 'Libreria - Lista Libri')
+
+@section('content')
 <h1>Books list</h1>
 
-{{-- @if ($titles)
-    <ul>
-        @foreach ($titles as $title)
-            <li @style([
-                'background-color: gray' => $loop->even,
-                'background-color: lightgray' => $loop->odd,
-            ])>{{ $loop->iteration }} - remaining {{ $loop->remaining }} - {{ $title }}</li>
-            @dump($loop)
-        @endforeach
-    </ul>
+
+
+@if ($books->count())
+<table class="table table-striped">
+    
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Price</th>
+            <th scope="col">Created_at</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach ( $books as $book )
+          <tr>
+            <th scope="row">{{$book->id}}</th>
+            <td>{{$book->title}}</td>
+            <td>{{$book->author}}</td>
+            <td>{{$book->price}}</td>
+            <td>{{$book->created_at}}</td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
 @else
     <h2>Non ci sono libri</h2>
-@endif --}}
-
-
-
-@forelse ($books as $book)
-    <div>{{ $book->title }}</div>
-@empty
-    <h2>Non ci sono libri</h2>
-@endforelse
+@endif
+@endsection
