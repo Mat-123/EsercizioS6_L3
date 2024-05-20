@@ -1,0 +1,1 @@
+<button {{ $attributes->class(['btn', 'ciao']) }}>{{ $attributes->get('start') }} {{ $slot }}</button>
